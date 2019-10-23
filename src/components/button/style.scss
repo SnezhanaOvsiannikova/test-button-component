@@ -1,0 +1,132 @@
+@import "../../styles/variables.scss";
+
+.btn {
+  border: 2px solid $borderColorBtn;
+  background-color: $defaultBgColorBtn;
+  color: $white;
+  border-radius: 5px;
+  font-size: $mainFontSize;
+  line-height: $mainLineHeight;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+  &.active,
+  &:hover:enabled {
+    background-color: darken($defaultBgColorBtn, 20%);
+  }
+  &:hover:enabled {
+    cursor: pointer;
+  }
+  &.disabled {
+    background-color: $disabledBgColor;
+    color: $disabledColor;
+    border-color: $disabledBorderColor;
+    cursor: default;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &.btn-sm {
+    padding: 4px 8px;
+    font-size: $smallFontSize;
+    line-height: $smallLineHeight;
+  }
+  &.btn-md {
+    padding: 6px 10px;
+  }
+  &.btn-lg {
+    padding: 8px 12px;
+    font-size: $lagreFontSize;
+    line-height: $lagreLineHeight;
+  }
+  &.btn-success {
+    background-color: $successBgColorBtn;
+    border-color: $successBorderColorBtn;
+    &:hover:enabled,
+    &.active {
+      background-color: darken($successBgColorBtn, 10%);
+    }
+  }
+  &.btn-warning {
+    background-color: $warningBgColorBtn;
+    border-color: $warningBorderColorBtn;
+    &:hover:enabled,
+    &.active {
+      background-color: darken($warningBgColorBtn, 10%);
+    }
+  }
+  &.btn-error {
+    background-color: $errorBgColorBtn;
+    border-color: $errorBorderColorBtn;
+    &:hover:enabled,
+    &.active {
+      background-color: darken($errorBgColorBtn, 10%);
+    }
+  }
+  &.link {
+    background-color: transparent;
+    border: none;
+    color: $black;
+    text-decoration: none;
+    &:hover {
+      background-color: transparent;
+      color: $disabledLinkColor;
+    }
+    &.disabled {
+      background-color: $disabledBgColor;
+      border-color: $disabledBorderColor;
+      color: $disabledLinkColor;
+      cursor: default;
+      .loader:after {
+        border-color: $disabledLinkColor;
+        border-color: $disabledLinkColor transparent $disabledLinkColor
+          $disabledLinkColor;
+      }
+    }
+    .loader:after {
+      border-color: $black;
+      border-color: $black transparent $black $black;
+    }
+  }
+  .loader:after {
+    border-color: $white;
+    border-color: $white transparent $white $white;
+  }
+}
+#text-block {
+  margin-top: 1000px;
+}
+.fa {
+  margin-right: 10px;
+  &.icon {
+    margin: 0;
+  }
+}
+.loader {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  &:after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    animation: loader 1.2s linear infinite;
+  }
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
